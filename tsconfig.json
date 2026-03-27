@@ -2,14 +2,12 @@
   "compilerOptions": {
     "jsx": "react-jsx",
     "target": "ES2020",
-    "useDefineForGetters": true,
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "moduleResolution": "bundler",
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true
-    // ...остальные параметры...
   },
   "include": ["src"],
   "exclude": ["node_modules"]
