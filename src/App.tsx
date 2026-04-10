@@ -1,71 +1,19 @@
-import { useState } from "react";
-
-interface Task {
-  text: string;
-  done: boolean;
-}
-
 function App() {
-  const [input, setInput] = useState<string>("");
-  const [tasks, setTasks] = useState<Task[]>([]);
-
-  function addTask() {
-    if (input.trim() === "") return;
-
-    setTasks([...tasks, { text: input, done: false }]);
-    setInput("");
-  }
-
-  function toggleTask(index: number) {
-    const newTasks = [...tasks];
-    newTasks[index].done = !newTasks[index].done;
-    setTasks(newTasks);
-  }
-
-  function deleteTask(index: number) {
-    const newTasks = tasks.filter((_, i) => i !== index);
-    setTasks(newTasks);
-  }
-
   return (
-    <div style={{ textAlign: "center", marginTop: "40px" }}>
-      <h1>Todo List</h1>
-
-      <input
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-        placeholder="Enter task"
-      />
-      <button onClick={addTask}>Add</button>
-
-      <ul style={{ listStyle: "none", padding: 0 }}>
-        {tasks.map((task, index) => (
-          <li
-            key={index}
-            style={{
-              margin: "10px",
-              cursor: "pointer",
-              textDecoration: task.done ? "line-through" : "none",
-            }}
-            onClick={() => toggleTask(index)}
-          >
-            {task.text}
-            <button
-              style={{ marginLeft: "10px" }}
-              onClick={(e) => {
-                e.stopPropagation();
-                deleteTask(index);
-              }}
-            >
-              ❌
-            </button>
-          </li>
-        ))}
-      </ul>
-
-      <p>Всего задач: {tasks.length}</p>
+    <div className="min-h-screen bg-slate-900 flex items-center justify-center p-4">
+      <div className="bg-white p-8 rounded-2xl shadow-2xl max-w-md w-full text-center transform hover:scale-105 transition-transform duration-300">
+        <h1 className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mb-4">
+          Tailwind работает!
+        </h1>
+        <p 
+          className="bg-[rgba(0, 0, 0, 1)] text-white">
+        </p>
+        <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition-colors">
+          Кайф!
+        </button>
+      </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
